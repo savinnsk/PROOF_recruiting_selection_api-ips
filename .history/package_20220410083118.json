@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev":"nodemon --inspect --transpile-only --ignore-watch node_modules --respawn src/server.ts",
+    "dev":"nodemon  src/server.ts",
     "start": "nodemon src/index.ts"
   },
   "repository": "https://github.com/savinnsk/api-ip-list-js.git",

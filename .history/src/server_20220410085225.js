@@ -1,0 +1,45 @@
+const express = require("express");
+const app = express();
+const axios = require("axios");
+const Router = require("./routers");
+
+app.use(express.json());
+app.use(Router());
+
+let database = {};
+
+async function fetchIps() {
+  let ipsArray = [];
+
+  const fetch = await axios.get(
+    "https://onionoo.torproject.org/summary?limit=5000"
+  );
+  const all = await fetch.data.relays;
+  all.map((ip) => ipsArray.push(ip.a[0]));
+  return ipsArray;
+}
+
+app.get("/", async (req, res) => {
+  const ips = await fetchIps();
+  database = ips;
+  res.send(database);
+});
+
+app.post("/remove/", (req, res) => {
+  let listIps = [];
+
+  const { ip } = req.body;
+
+  console.log(ip);
+
+  listIps = database.filter((e) => ip.includes(e) !== true);
+
+  database = listIps;
+  res.send(database);
+});
+
+app.get("/ips", (req, res) => {
+  res.send(database);
+});
+
+app.listen(3000, console.log("server is running"));
