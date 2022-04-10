@@ -2,9 +2,6 @@
   "name": "Api-ip-list-js",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-    "dev":"nodemon ./src/server.js"
-  },
   "repository": "https://github.com/savinnsk/api-ip-list-js.git",
   "author": "Savio Picanço <saviopbrito@outlook.com>",
   "license": "MIT",
