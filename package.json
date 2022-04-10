@@ -1,0 +1,13 @@
+{
+  "name": "Api-ip-list-js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/savinnsk/api-ip-list-js.git",
+  "author": "Savio Picanço <saviopbrito@outlook.com>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "express": "^4.17.3",
+    "nodemon": "^2.0.15"
+  }
+}
