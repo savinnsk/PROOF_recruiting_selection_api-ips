@@ -27,6 +27,8 @@ router.post("/remove/", (req, res) => {
 
   const { ip } = req.body;
 
+  console.log(ip);
+
   listIps = database.filter((e) => ip.includes(e) !== true);
 
   database = listIps;
