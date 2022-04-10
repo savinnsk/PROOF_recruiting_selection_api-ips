@@ -10,7 +10,7 @@ async function fetchIps() {
   let ipsArray = [];
 
   const fetch = await axios.get(
-    "https://onionoo.torproject.org/summary?limit=5000"
+    "https://onionoo.torproject.org/summary?limit=5"
   );
   const all = await fetch.data.relays;
   all.map((ip) => ipsArray.push(ip.a[0]));
