@@ -1,11 +1,27 @@
 const { Router } = require("express");
+const axios = require("axios");
 const ipController = require("../controllers/ipController");
 
 const router = Router();
 
 let database = {};
 
-router.get("/", ipController.getAllIps);
+router.get("/", async (req, res) => {
+  async function fetchIps() {
+    let ipsArray = [];
+
+    const fetch = await axios.get(
+      "https://onionoo.torproject.org/summary?limit=5000"
+    );
+    const all = await fetch.data.relays;
+    all.map((ip) => ipsArray.push(ip.a[0]));
+    return ipsArray;
+  }
+
+  const ips = await fetchIps();
+  database = ips;
+  res.status(201).send(database);
+});
 
 router.post("/remove/", (req, res) => {
   let listIps = [];

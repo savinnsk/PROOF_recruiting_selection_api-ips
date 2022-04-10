@@ -1,4 +1,5 @@
 const { Router } = require("express");
+const axios = require("axios");
 const ipController = require("../controllers/ipController");
 
 const router = Router();

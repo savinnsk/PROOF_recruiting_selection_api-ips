@@ -5,7 +5,7 @@ const router = Router();
 
 let database = {};
 
-router.get("/", ipController.getAllIps);
+router.get("/", await ipController.getAllIps);
 
 router.post("/remove/", (req, res) => {
   let listIps = [];
