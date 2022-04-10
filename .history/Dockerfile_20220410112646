@@ -2,8 +2,7 @@ FROM node:latest
 
 WORKDIR /usr/app
 
-COPY package.json  ./ 
-COPY data.json ./ 
+COPY package.json  data.json ./ 
 
 RUN npm install
 
