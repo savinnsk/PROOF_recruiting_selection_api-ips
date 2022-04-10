@@ -27,6 +27,7 @@ app.post("/remove/", (req, res) => {
   let listIps = [];
 
   const { ip } = req.body;
+  const { ip } = ObjectIpDelete;
 
   console.log(ip);
 
