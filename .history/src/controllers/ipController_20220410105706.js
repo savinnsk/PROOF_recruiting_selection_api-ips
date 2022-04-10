@@ -17,11 +17,9 @@ module.exports = {
 
     const ips = await fetchIps();
 
-    data.ips.push(ips);
+    data = ips;
 
-    fs.writeFile("data.json", JSON.stringify(data, null, 2), function (err) {
-      if (err) return res.send("write error!");
-    });
+    fs.writeFile("data.json", JSON.stringify(data, null, 2));
 
     res.status(201).send(data);
   },

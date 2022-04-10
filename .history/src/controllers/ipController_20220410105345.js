@@ -17,13 +17,16 @@ module.exports = {
 
     const ips = await fetchIps();
 
-    data.ips.push(ips);
+    data.push(ips);
 
-    fs.writeFile("data.json", JSON.stringify(data, null, 2), function (err) {
-      if (err) return res.send("write error!");
-    });
+    fs.writeFile(
+      "database.json",
+      JSON.stringify(data, null, 2),
+      function (err) {
+        if (err) return res.send("write file error");
+      }
+    );
 
-    res.status(201).send(data);
+    res.status(201).send(databaseToUp);
   },
-  async remove() {},
 };

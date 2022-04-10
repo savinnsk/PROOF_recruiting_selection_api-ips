@@ -1,6 +1,7 @@
 const axios = require("axios");
 const fs = require("fs");
-const data = require("../../data.json");
+
+let database = {};
 
 module.exports = {
   async getAllIps(req, res) {
@@ -16,14 +17,7 @@ module.exports = {
     }
 
     const ips = await fetchIps();
-
-    data.ips.push(ips);
-
-    fs.writeFile("data.json", JSON.stringify(data, null, 2), function (err) {
-      if (err) return res.send("write error!");
-    });
-
-    res.status(201).send(data);
+    database = ips;
+    res.status(201).send(database);
   },
-  async remove() {},
 };
