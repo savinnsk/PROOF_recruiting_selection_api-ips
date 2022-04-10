@@ -31,14 +31,9 @@ module.exports = {
 
     const { ip } = req.body;
 
-    listIps = data.ips.filter((e) => ip.includes(e) !== true);
+    listIps = database.filter((e) => ip.includes(e) !== true);
 
-    data.ips = listIps;
-
-    fs.writeFile("data.json", JSON.stringify(data, null, 2), function (err) {
-      if (err) return res.send("write error!");
-    });
-
-    res.status(200).send(data);
+    database = listIps;
+    res.status(200).send(database);
   },
 };

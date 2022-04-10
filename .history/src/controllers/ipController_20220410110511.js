@@ -25,20 +25,5 @@ module.exports = {
 
     res.status(201).send(data);
   },
-
-  remove(req, res) {
-    let listIps = [];
-
-    const { ip } = req.body;
-
-    listIps = data.ips.filter((e) => ip.includes(e) !== true);
-
-    data.ips = listIps;
-
-    fs.writeFile("data.json", JSON.stringify(data, null, 2), function (err) {
-      if (err) return res.send("write error!");
-    });
-
-    res.status(200).send(data);
-  },
+  async remove() {},
 };
