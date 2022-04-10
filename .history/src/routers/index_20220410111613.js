@@ -7,6 +7,8 @@ router.get("/", ipController.getAllIps);
 
 router.post("/remove/", ipController.remove);
 
-router.get("/ips", ipController.getAllIpsUpdated);
+router.get("/ips", (req, res) => {
+  res.status(200).send(database);
+});
 
 module.exports = { router };

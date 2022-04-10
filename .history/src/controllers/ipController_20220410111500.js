@@ -42,7 +42,5 @@ module.exports = {
     res.status(200).send(data);
   },
 
-  getAllIpsUpdated(req, res) {
-    res.status(200).send(data.ips);
-  },
+  getAllIpsUpdated(res, res) {},
 };
