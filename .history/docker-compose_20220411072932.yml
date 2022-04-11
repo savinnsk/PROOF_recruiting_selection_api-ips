@@ -5,14 +5,12 @@ services:
     image: postgres
     ports:
       - 5432:5432
+    volumes:
+      - pgdata/var/lib/postgresql/data
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=ipsdb
-    volumes:
-      - pgdata/var/lib/postgresql/data
-    network_mode: host
-      
   app:
     build: .
     container_name: apilist
@@ -24,6 +22,3 @@ services:
     network_mode: host
 
 
-volumes:
-  pgdata:
-    driver: local
