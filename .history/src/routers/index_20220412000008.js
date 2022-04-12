@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const ipController = require("../controllers/ipControllerPostgres");
+const ipControllerPostgres = require("../controllers/ipControllerPostgres");
 
 const router = Router();
 
