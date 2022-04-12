@@ -21,12 +21,5 @@ module.exports = {
     });
   },
 
-  getAllUpdated(callback) {
-    db.query(`SELECT ip from ips`, function (err, results) {
-      if (err) return res.send(`Database error ${err}`);
-
-      callback(results.rows);
-    });
-    //callback(results.rows);
-  },
+  getAllUpdated(data) {},
 };
