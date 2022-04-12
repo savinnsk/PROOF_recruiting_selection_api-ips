@@ -20,7 +20,7 @@ module.exports = {
 
     const dataToPostgres = { ips: [] };
 
-    //data.ips = ips;
+    data.ips = ips;
     dataToPostgres.ips = ips;
 
     //fs.writeFile("data.json", JSON.stringify(data, null, 2), function (err) {

@@ -18,17 +18,16 @@ module.exports = {
 
     const ips = await fetchIps();
 
-    const dataToPostgres = { ips: [] };
+    data.ips = ips;
 
-    //data.ips = ips;
-    dataToPostgres.ips = ips;
+    const dataTest = data.ips;
 
     //fs.writeFile("data.json", JSON.stringify(data, null, 2), function (err) {
-    //if (err) return res.send("write error!");
-    //});
+    // if (err) return res.send("write error!");
+    // });
 
-    dataToPostgres.ips.forEach((ip) => {
-      Ip.getAllIps(ip);
+    dataTest.forEach((ip) => {
+      Ip.getAllIps(dataTest.ip);
     });
 
     res.status(201).send(data);
