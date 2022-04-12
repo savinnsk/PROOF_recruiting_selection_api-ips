@@ -29,7 +29,16 @@
 
 ```
 
+_**OBS: if you don't want use postgres you can change the variable ipController in src/routes/index.js**_
 
+   ___FROM:__ const ipController = require("../controllers/ipController);_ 
+
+   ___TO:__ const ipController = require("../controllers/ipControllerPostgres);_
+
+   _So the file **data.json** will store all data instead_
+   
+   
+   
 
 
 **In terminal paste the follow comand to download the project**
