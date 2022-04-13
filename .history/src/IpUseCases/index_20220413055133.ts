@@ -1,0 +1,1 @@
+import { GetAllIps} from "./GetAllIps"

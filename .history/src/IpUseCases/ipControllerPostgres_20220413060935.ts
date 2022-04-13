@@ -26,7 +26,7 @@ class IpController  {
 
     dataToPostgres.ips.forEach((ip : Ip) => {
       this.ipDB.getAllIps(ip);
-    });
+    });*/
 
     this.ipDB.getAllIpsUpdated((data : Ip[]) => {
       res.status(200).send({
@@ -35,7 +35,7 @@ class IpController  {
       
       });
     });
-  }*/
+  }
 
   remove(req, res) {
     const {ip} = req.body;

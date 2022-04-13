@@ -7,7 +7,7 @@ class IpController  {
 
   constructor(private ipDB : InterfaceIpDB  ){}
 
-  /* async getAllIps(req, res) {
+  async getAllIps(req, res) {
     async function fetchIps() {
       let ipsArray : Ip[] = [];
 
@@ -35,7 +35,7 @@ class IpController  {
       
       });
     });
-  }*/
+  }
 
   remove(req, res) {
     const {ip} = req.body;

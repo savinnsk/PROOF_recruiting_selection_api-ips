@@ -1,6 +1,6 @@
 import { Router } from "express";
 //const ipController = require("../controllers/ipControllerPostgres");
-import { getAllIps} from "../IpUseCases/FecthAllIps"
+import { getAllIps} from "../IpUseCases/FecthAllIpsUseCase"
 
 const router : any = Router();
 
