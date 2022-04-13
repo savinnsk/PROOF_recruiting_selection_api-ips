@@ -16,13 +16,13 @@ class IpDB  {
     });
   }
 
-  delete(ip) {
+  remove(ip) {
     db.query(`DELETE FROM ips WHERE ip = $1`, [ip], function (err) {
       if (err) throw `Database error ${err}`;
     });
   }
 
-  getAllUpdated(callback) {
+  getAllIpsUpdated(callback) {
     db.query(`SELECT ip from ips`, function (err, results) {
       if (err) return res.send(`Database error ${err}`);
 
