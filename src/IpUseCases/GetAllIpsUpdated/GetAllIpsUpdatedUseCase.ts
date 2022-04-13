@@ -1,6 +1,6 @@
 import { InterfaceIpDB } from "../../repositories/InterfaceIpDB";
 
-class getAllIpsUpdatedUseCase {
+class GetAllIpsUpdatedUseCase {
 
     constructor (private ipDB : InterfaceIpDB ){}
 
@@ -11,4 +11,4 @@ class getAllIpsUpdatedUseCase {
       }
 }
 
-export {getAllIpsUpdatedUseCase}
+export {GetAllIpsUpdatedUseCase}
