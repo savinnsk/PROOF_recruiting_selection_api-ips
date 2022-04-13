@@ -10,6 +10,7 @@
 - [Docker](https://www.docker.com/)
 - [NodeJS](https://nodejs.org/pt-br/)
 - [Postgres-Sql](https://www.postgresql.org/)
+- [TypeScript](https://www.typescriptlang.org/)
 
 ## How to Download the project
 
@@ -17,6 +18,17 @@
 - [Docker](https://www.docker.com/)
 
 - **Query Data Base required**
+
+- Is required a database called **ipsdb** in your postgres.
+- Is requires a table called **ips** with the properties **id** and  **ip**
+
+- data base config..
+
+    user: "postgres",
+    password: "admin",
+    host: "localhost",
+    port: 5432,
+    database: "ipsdb",
 
 ```zsh
 
@@ -52,7 +64,7 @@ $ docker-compose up -d
 
 ## ENDPOINTS
 
-### GET LIST OF IPS
+### FECTH LIST OF IPS
 
 **endpoint:**  http://localhost:3000/
 
@@ -61,7 +73,12 @@ $ docker-compose up -d
 **Success Response:**
 
     - code:  200
-    - content:[...array of ips]
+
+    - content: {
+        - message,
+        - [...array of ips]
+        }
+
     
     
 ### REMOVE A IP
@@ -73,7 +90,9 @@ $ docker-compose up -d
 **Success Response:**
 
     - code:  200
-    - content: ip_removed
+    
+    - content: 
+        - message : ip removed
 
 ### GET LIST OF IP'S UPDATED
 
