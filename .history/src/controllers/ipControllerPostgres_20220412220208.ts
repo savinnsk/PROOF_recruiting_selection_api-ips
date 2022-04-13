@@ -1,11 +1,11 @@
+ 
+import {Ip} from "../models/Ip"
 import axios from "axios";
 import {IpDB} from "../repositories/IpDB";
-import {Ip} from "../models/Ip"
-import {InterfaceIpDB} from "../repositories/InterfaceIpDB"
 
 class IpController  {
 
-  constructor(private ipDB : InterfaceIpDB  ){}
+  constructor(private ipDB :   ){}
 
   async getAllIps(req, res) {
     async function fetchIps() {
@@ -25,7 +25,7 @@ class IpController  {
     dataToPostgres.ips = ips;
 
     dataToPostgres.ips.forEach((ip : Ip) => {
-      this.ipDB.getAllIps(ip);
+      IpDB.getAllIps(ip);
     });
 
     IpDB.getAllUpdated((data : Ip[]) => {
@@ -35,7 +35,7 @@ class IpController  {
       
       });
     });
-  }
+  },
 
   remove(req, res) {
     const {ip} = req.body;
@@ -44,11 +44,11 @@ class IpController  {
     res.status(200).send({
       message :`ip : ${ip}  removed`
     });
-  }
+  },
 
   getAllIpsUpdated(req, res) {
     IpDB.getAllUpdated((data) => {
       res.status(200).send(data);
     });
-  }
+  },
 };

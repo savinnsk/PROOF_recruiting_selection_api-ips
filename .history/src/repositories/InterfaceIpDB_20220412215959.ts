@@ -1,0 +1,6 @@
+
+interface InterfaceIpDB {
+
+    getAllIps() : void,
+    
+}

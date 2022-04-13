@@ -25,7 +25,7 @@ class IpController  {
     dataToPostgres.ips = ips;
 
     dataToPostgres.ips.forEach((ip : Ip) => {
-      this.ipDB.getAllIps(ip);
+      IpDB.getAllIps(ip);
     });
 
     IpDB.getAllUpdated((data : Ip[]) => {
@@ -35,7 +35,7 @@ class IpController  {
       
       });
     });
-  }
+  },
 
   remove(req, res) {
     const {ip} = req.body;
@@ -44,11 +44,11 @@ class IpController  {
     res.status(200).send({
       message :`ip : ${ip}  removed`
     });
-  }
+  },
 
   getAllIpsUpdated(req, res) {
     IpDB.getAllUpdated((data) => {
       res.status(200).send(data);
     });
-  }
+  },
 };

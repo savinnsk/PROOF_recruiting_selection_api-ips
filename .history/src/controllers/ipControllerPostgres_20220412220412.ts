@@ -25,7 +25,7 @@ class IpController  {
     dataToPostgres.ips = ips;
 
     dataToPostgres.ips.forEach((ip : Ip) => {
-      this.ipDB.getAllIps(ip);
+      IpDB.getAllIps(ip);
     });
 
     IpDB.getAllUpdated((data : Ip[]) => {
