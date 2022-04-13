@@ -1,5 +1,5 @@
 
-interface Ip{
+interface IpInterface {
     ip : String
 }
 

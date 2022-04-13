@@ -2,25 +2,25 @@
 
 import axios from "axios";
 import fs from "fs";
-const data =  require("../../data.json");
+import data from "../../data.json";
+import Ip from "../models/IpDB";
 
 module.exports = {
-  
   async getAllIps(req, res) {
-
     async function fetchIps() {
       let ipsArray = [];
 
       const fetch = await axios.get(
         "https://onionoo.torproject.org/summary?limit=5000"
       );
-
       const all = await fetch.data.relays;
       all.map((ip) => ipsArray.push(ip.a[0]));
       return ipsArray;
     }
 
     const ips = await fetchIps();
+
+    const dataToPostgres = { ips: [] };
 
     data.ips = ips;
 
@@ -35,6 +35,8 @@ module.exports = {
     let listIps = [];
 
     const { ip } = req.body;
+
+    Ip.delete(ip);
 
     listIps = data.ips.filter((e) => ip.includes(e) !== true);
 

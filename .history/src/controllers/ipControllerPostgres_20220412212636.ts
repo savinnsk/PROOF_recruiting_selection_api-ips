@@ -27,22 +27,15 @@ module.exports = {
       IpDB.getAllIps(ip);
     });
 
-    IpDB.getAllUpdated((data : Ip[]) => {
-      res.status(200).send({
-        message :"Ips stored inside database",
-        data: data
-      
-      });
+    IpDB.getAllUpdated((data) => {
+      res.status(200).send(data);
     });
   },
 
   remove(req, res) {
-    const {ip} = req.body;
+    const { ip } = req.body;
     IpDB.delete(ip);
-
-    res.status(200).send({
-      message :`ip : ${ip}  removed`
-    });
+    res.status(200).send(ip);
   },
 
   getAllIpsUpdated(req, res) {

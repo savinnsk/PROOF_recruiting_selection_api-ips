@@ -37,12 +37,9 @@ module.exports = {
   },
 
   remove(req, res) {
-    const {ip} = req.body;
+    const  ip : Ip = req.body;
     IpDB.delete(ip);
-
-    res.status(200).send({
-      message :`ip : ${ip}  removed`
-    });
+    res.status(200).send({ip});
   },
 
   getAllIpsUpdated(req, res) {

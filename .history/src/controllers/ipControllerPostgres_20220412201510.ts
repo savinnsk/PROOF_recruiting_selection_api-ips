@@ -1,48 +1,40 @@
  
 import {Ip} from "../model/Ip"
 
-import axios from "axios";
-const IpDB = require("../models/IpDB");
+const axios = require("axios");
+import IpDB from "../models/IpDB";
 
 module.exports = {
-
   async getAllIps(req, res) {
     async function fetchIps() {
-      let ipsArray : Ip[] = [];
+      let ipsArray : Ips[] = [];
 
       const fetch = await axios.get(
         "https://onionoo.torproject.org/summary?limit=5000"
       );
       const all = await fetch.data.relays;
-      all.map((ip : any) => ipsArray.push(ip.a[0]));
+      all.map((ip : Ip) => ipsArray.push(ip.a[0]));
       return ipsArray;
     }
 
     const ips = await fetchIps();
-    const dataToPostgres = { ips : [] };
+    const dataToPostgres = { ips: [] };
 
     dataToPostgres.ips = ips;
 
-    dataToPostgres.ips.forEach((ip : Ip) => {
+    dataToPostgres.ips.forEach((ip) => {
       IpDB.getAllIps(ip);
     });
 
-    IpDB.getAllUpdated((data : Ip[]) => {
-      res.status(200).send({
-        message :"Ips stored inside database",
-        data: data
-      
-      });
+    IpDB.getAllUpdated((data) => {
+      res.status(200).send(data);
     });
   },
 
   remove(req, res) {
-    const {ip} = req.body;
+    const { ip } = req.body;
     IpDB.delete(ip);
-
-    res.status(200).send({
-      message :`ip : ${ip}  removed`
-    });
+    res.status(200).send(ip);
   },
 
   getAllIpsUpdated(req, res) {
