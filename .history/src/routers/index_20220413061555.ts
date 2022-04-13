@@ -9,9 +9,7 @@ router.get("/", (req ,res) => {
     getAllIps.execute(req , res)
 });
 
-router.post("/remove/", (req , res) => {
-    removeIpUseCase.execute(req ,res)
-});
+//router.post("/remove/", ipController.remove);
 
 //router.get("/ips", ipController.getAllIpsUpdated);
 
