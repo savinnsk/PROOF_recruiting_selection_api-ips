@@ -1,0 +1,1 @@
+import { getAllIpsUpdatedUseCase } from "./GetAllIpsUpdatedUseCase";
