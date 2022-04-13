@@ -28,7 +28,7 @@ class IpController  {
       this.ipDB.getAllIps(ip);
     });
 
-    IpDB.getAllUpdated((data : Ip[]) => {
+    this.ipDB.getAllIpsUpdated((data : Ip[]) => {
       res.status(200).send({
         message :"Ips stored inside database",
         data: data
@@ -39,7 +39,7 @@ class IpController  {
 
   remove(req, res) {
     const {ip} = req.body;
-    IpDB.delete(ip);
+    this.ipDB.remove(ip);
 
     res.status(200).send({
       message :`ip : ${ip}  removed`
@@ -47,8 +47,11 @@ class IpController  {
   }
 
   getAllIpsUpdated(req, res) {
-    IpDB.getAllUpdated((data) => {
+    this.ipDB.getAllIpsUpdated((data) => {
       res.status(200).send(data);
     });
   }
 };
+
+
+export {IpController}
