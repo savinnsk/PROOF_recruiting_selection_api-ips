@@ -39,8 +39,11 @@ class GetAllIps {
             });
 
             }catch(error){ 
-              res.status(400).send()               
-              console.log(`${error}`)}
+              res.status(400).send() 
+              
+              console.log(`Can't get Ip's ${error`)            
+            })
+          }
           }
     
     

@@ -25,22 +25,20 @@ class GetAllIps {
             dataToPostgres.ips = ips;
             
             try{
-
             dataToPostgres.ips.forEach((ip : Ip) => {
-              this.ipDB.getAllIps(ip);
+              this.ipDBs.getAllIps(ip);
             });
         
             this.ipDB.getAllIpsUpdated((data : Ip[]) => {
               res.status(200).send({
-                message :"Ips fetch done",
+                message :"Ips stored inside database",
                 data: data
               
               });
-            });
-
-            }catch(error){ 
-              res.status(400).send()               
-              console.log(`${error}`)}
+            })}catch(error){ res.status(400).send({
+              message :`Can't get Ip's ${error}`
+            
+            })}
           }
     
     

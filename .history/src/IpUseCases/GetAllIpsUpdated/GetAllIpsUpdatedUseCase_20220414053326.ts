@@ -10,10 +10,7 @@ class GetAllIpsUpdatedUseCase {
           res.status(200).send(data);
         });
 
-      }catch(error){
-        res.status(500).send()
-        console.log(`${error}`)
-      }
+      }catch(error){}
     }
 }
 

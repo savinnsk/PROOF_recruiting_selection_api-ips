@@ -17,7 +17,7 @@ class IpDB  {
     });
   }
 
-  remove(ip : Ip ) {
+  remove(ip) {
     db.query(`DELETE FROM ips WHERE ip = $1`, [ip], function (err) {
       if (err) throw `Database error ${err}`;
     });
@@ -25,7 +25,7 @@ class IpDB  {
 
   getAllIpsUpdated(callback) {
     db.query(`SELECT ip from ips`, function (err, results) {
-      if (err)  throw (`Database error ${err}`);
+      if (err) return res.send(`Database error ${err}`);
 
       callback(results.rows);
     });

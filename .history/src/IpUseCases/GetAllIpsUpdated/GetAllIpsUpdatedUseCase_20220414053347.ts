@@ -12,7 +12,6 @@ class GetAllIpsUpdatedUseCase {
 
       }catch(error){
         res.status(500).send()
-        console.log(`${error}`)
       }
     }
 }

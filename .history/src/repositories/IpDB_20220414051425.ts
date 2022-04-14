@@ -25,7 +25,7 @@ class IpDB  {
 
   getAllIpsUpdated(callback) {
     db.query(`SELECT ip from ips`, function (err, results) {
-      if (err)  throw (`Database error ${err}`);
+      if (err) return res.send(`Database error ${err}`);
 
       callback(results.rows);
     });
