@@ -22,13 +22,15 @@
 - Is required a **database** called **ipsdb** in your postgres.
 - Is requires a **table** called **ips** with the properties **id** and  **ip**
 
-- data base config..
+#### Data base config..
 
--user: "postgres",
+- user: "postgres",
 - password: "admin",
 - host: "localhost",
 - port: 5432,
 - database: "ipsdb",
+
+#### Query sql
 
 ```zsh
 
