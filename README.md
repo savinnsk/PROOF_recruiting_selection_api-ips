@@ -93,7 +93,7 @@ $ docker-compose up -d
     - code:  200
 
     - content: {
-        - message :  ,
+        - message of success
         - data : [...array of ips]
         }
 
