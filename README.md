@@ -17,7 +17,7 @@
 #### Required:
 - [Docker](https://www.docker.com/)
 
-- **Query Data Base required**
+- **Data Base required**
 
 - Is required a database called **ipsdb** in your postgres.
 - Is requires a table called **ips** with the properties **id** and  **ip**
