@@ -75,10 +75,13 @@ $ docker-compose up -d
     - code:  200
 
     - content: {
-        - message,
-        - [...array of ips]
+        - message :  ,
+        - data : [...array of ips]
         }
 
+**Bad Response:**
+
+    -code : 400
     
     
 ### REMOVE A IP
@@ -93,6 +96,10 @@ $ docker-compose up -d
     
     - content: 
         - message : ip removed
+        
+**Bad Response:**
+
+    -code : 400        
 
 ### GET LIST OF IP'S UPDATED
 
@@ -104,6 +111,10 @@ $ docker-compose up -d
 
     - code:  200
     - content: [array_of_ip's_updated]
+    
+**Bad Response:**
+
+    -code : 400    
 
 
 **Desenvolvido por:** [Savio Picanço Do Espirito Santo Brito](https://www.linkedin.com/in/savio-pican%C3%A7o-b739a518a/)
